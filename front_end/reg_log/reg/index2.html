@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up / Log In</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
+        import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyANsdj2H1Q_uC0TT4OFfH2w2jsofS2aXP4",
+          authDomain: "evntmngmt-245f4.firebaseapp.com",
+          projectId: "evntmngmt-245f4",
+          storageBucket: "evntmngmt-245f4.appspot.com",
+          messagingSenderId: "593605463609",
+          appId: "1:593605463609:web:ca78876b8271ff6dc187e8",
+          measurementId: "G-C5PJK9G0LS"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+         // Google Sign-In
+    async function googleLogin() {
+        const provider = new GoogleAuthProvider();
+        try {
+            const result = await signInWithPopup(auth, provider);
+            // Get the Google Access Token and user info
+            const token = result.credential.accessToken;
+            const user = result.user;
+
+            // Retrieve and log the user's email
+            console.log("Logged in user email:", user.email);
+
+            // You can also send this email to your backend or use it in your application
+            // For example, redirecting the user to a dashboard or storing the email in Firestore
+
+            alert('Google Login Successful. Logged in as: ' + user.email);
+
+        } catch (error) {
+            console.error("Error during Google sign-in:", error);
+            alert('Google Login failed: ' + error.message);
+        }
+    }
+
+    // Attach the Google login function to the button
+    document.addEventListener('DOMContentLoaded', () => {
+        const googleBtn = document.querySelector('.social-btn.google');
+        googleBtn.addEventListener('click', googleLogin);
+    });
+
+      </script>
+
+   
+</head>
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <img src="logo.png" alt="Logo" class="logo">
+            <form id="auth-form">
+                <input type="text" id="user_id" placeholder="User ID" required>
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="tel" id="ph" placeholder="Phone Number" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <input type="text" id="social_login_id" placeholder="Social Login ID">
+                <input type="text" id="social_login_provider" placeholder="Social Login Provider (Google/Facebook)">
+                <select id="role" required>
+                    <option value="">Select Role</option>
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <input type="text" id="event_type" placeholder="Event Type" required>
+                <input type="checkbox" id="notification"> Receive Notifications
+                <select id="notification_type" required>
+                    <option value="">Select Notification Type</option>
+                    <option value="sms">SMS</option>
+                    <option value="email">Email</option>
+                </select>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+            <div class="social-login">
+                <p>Or log in with:</p>
+                <button class="social-btn google">Log in with Google</button>
+                <!-- <button class="social-btn facebook">Log in with Facebook</button> -->
+                
+                <a href="../login_user/user_login.html" class="nav-btn">
+                    <button>user Login</button> </a>
+                
+                <a href="../login_admin/admin_login.html" class="nav-btn">
+                    <button>Admin Login</button> </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

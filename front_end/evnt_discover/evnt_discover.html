@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Discovery</title>
+    <link rel="stylesheet" href="evnt_discover.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Event Discovery</h1>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search by Keyword/Location/Date">
+            <button id="search-button">Search</button>
+        </div>
+        <div class="filter-options">
+            <select id="category-filter">
+                <option value="">Select Category</option>
+                <option value="Acting">Acting</option>
+                <option value="Singing">Singing</option>
+                <!-- Add more categories as needed -->
+            </select>
+            <input type="text" id="location-filter" placeholder="Enter Location">
+            <input type="datetime-local" id="date-filter" placeholder="Select Date">
+            <button id="filter-button">Filter</button>
+        </div>
+        <div class="event-list" id="event-list">
+            <!-- Event cards will be inserted here -->
+        </div>
+
+
+    </div>
+
+    <script src="evnt_disc.js"></script>
+</body>
+</html>

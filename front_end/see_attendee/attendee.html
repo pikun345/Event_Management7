@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See Attendees</title>
+    <link rel="stylesheet" href="attendee.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Event Attendees</h1>
+        <div class="search-container">
+            <label for="event-id">Enter Event ID:</label>
+            <input type="text" id="event-id" placeholder="Enter Event ID">
+            <button id="search-button">See Attendees</button>
+        </div>
+        <div id="attendees-list" class="attendees-list">
+            <!-- Attendee details will be displayed here -->
+        </div>
+        <div id="message" class="message"></div>
+    </div>
+    <script src="attendee.js"></script>
+</body>
+</html>

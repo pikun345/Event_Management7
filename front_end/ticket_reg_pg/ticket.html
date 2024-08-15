@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Registration</title>
+    <link rel="stylesheet" href="tkt.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Ticket Registration</h2>
+        <form id="ticketForm">
+            <div class="form-group">
+                <label for="ticket_id">Ticket ID:</label>
+                <input type="text" id="ticket_id" name="ticket_id" required>
+            </div>
+            <div class="form-group">
+                <label for="evnt_id">Event ID:</label>
+                <input type="text" id="evnt_id" name="evnt_id" required>
+            </div>
+            <div class="form-group">
+                <label for="user_id">User ID:</label>
+                <input type="text" id="user_id" name="user_id" required>
+            </div>
+            <div class="form-group">
+                <label for="ticket_type">Ticket Type:</label>
+                <select id="ticket_type" name="ticket_type" required>
+                    <option value="General Admission">General Admission</option>
+                    <option value="VIP">VIP</option>
+                   
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" required>
+            </div>
+            <div class="form-group">
+                <label for="purchase_date">Purchase Date:</label>
+                <input type="date" id="purchase_date" name="purchase_date" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Register Ticket</button>
+            </div>
+        </form>
+    </div>
+    <script src="tkt2.js"></script>
+</body>
+</html>

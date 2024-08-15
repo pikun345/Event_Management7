@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Purchase</title>
+    <link rel="stylesheet" href="book.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ticket Purchase</h1>
+
+        <div class="purchase-section">
+            <h2>Purchase Ticket</h2>
+            <form id="purchase-form">
+                <input type="number" id="ticket_id" placeholder="Ticket ID" required>
+                <input type="number" id="evnt_id" placeholder="Event ID" required>
+                <input type="number" id="user_id" placeholder="User ID" required>
+                <select id="ticket_type" required>
+                    <option value="" disabled selected>Select Ticket Type</option>
+                    <option value="VIP">VIP</option>
+                    <option value="General">General</option>
+                </select>
+                <input type="number" id="price" placeholder="Price" required readonly>
+                <input type="text" id="purchase_date" placeholder="Date & Time (e.g 2024-09-15 09:00:00)" required>
+                <button type="submit" id="purchase-button">Purchase</button>
+            </form>
+        </div>
+
+        <div class="cancel-section">
+            <h2>Cancel Ticket</h2>
+            <form id="cancel-form">
+                <input type="number" id="cancel_ticket_id" placeholder="Ticket ID" required>
+                <button type="submit" id="cancel-button">Cancel Ticket</button>
+            </form>
+        </div>
+
+        <div id="message2"></div>
+    </div>
+
+    <script src="book.js"></script>
+</body>
+</html>
